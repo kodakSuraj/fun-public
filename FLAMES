@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char getFLAMESResult(int count);
+
+int main() {
+    char name1[100], name2[100];
+
+    printf(" Welcome to the FLAMES Game!\n");
+
+    printf("Enter the name of Person 1: ");
+    if (scanf("%99[^\n]", name1) != 1) {
+        printf("Invalid input. Exiting...\n");
+        return 1;
+    }
+
+    getchar();
+
+    printf("Enter the name of Person 2: ");
+    if (scanf("%99[^\n]", name2) != 1) {
+        printf("Invalid input. Exiting...\n");
+        return 1;
+    }
+
+    getchar();
+
+    // Check if names match specific conditions
+    if ((strcmp(name1, "suraj") == 0 || strcmp(name1, "madhumita") == 0 || strcmp(name1, "madhumitha") == 0 ||  strcmp(name1, "madumita") ) &&
+        (strcmp(name2, "madhumita") == 0 || strcmp(name2, "suraj") == 0 || strcmp(name2, "madhumitha") == 0)||  strcmp(name1, "madumita")) {
+        printf("\nWHAT WILL U GET BY DOING THESE THINGS,\nfuck u bitch,\n u are a bloody ass fucking bitch,\nu son of a bitch,\nnever in your life show me your face\n");
+        return 0;
+    }
+
+    if (strlen(name1) == 0 || strlen(name2) == 0 || strspn(name1, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name1) || strspn(name2, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name2)) {
+        printf("Invalid names. Exiting...\n");
+        return 1;
+    }
+
+    name1[strcspn(name1, "\n")] = '\0';
+    name2[strcspn(name2, "\n")] = '\0';
+
+    for (int i = 0; name1[i]; i++) {
+        name1[i] = toupper(name1[i]);
+    }
+
+    for (int i = 0; name2[i]; i++) {
+        name2[i] = toupper(name2[i]);
+    }
+
+    int length1 = strlen(name1);
+    int length2 = strlen(name2);
+
+    for (int i = 0; i < length1; i++) {
+        for (int j = 0; j < length2; j++) {
+            if (name1[i] == name2[j]) {
+                name1[i] = name2[j] = ' ';
+            }
+        }
+    }
+
+    int count = 0;
+    for (int i = 0; i < length1; i++) {
+        if (name1[i] != ' ') {
+            count++;
+        }
+    }
+    for (int i = 0; i < length2; i++) {
+        if (name2[i] != ' ') {
+            count++;
+        }
+    }
+
+    char result = getFLAMESResult(count);
+
+    switch(result) {
+        case 'F':
+            printf("\n Congratulations! You're Friends Forever! \n");
+            break;
+        case 'L':
+            printf("\n Love is in the air! You're More Than Lovers! \n");
+            break;
+        case 'A':
+            printf("\n Aww, how cute! There's some Affection!\n");
+            break;
+        case 'M':
+            printf("\n Oh my stars! Marriage is in the cards! \n");
+            break;
+        case 'E':
+            printf("\n Oops! Watch out, you might be Enemies! \n");
+            break;
+        case 'S':
+            printf("\n Surprise! You're Secretly Siblings! \n");
+            break;
+        default:
+            printf("\n Oops! The magic seems a bit tangled. Try again!\n");
+            break;
+    }
+
+    printf("\n Thank you for playing the FLAMES Game! May your adventures continue! \n");
+
+    return 0;
+}
+
+char getFLAMESResult(int count) {
+    char flames[] = "FLAMES";
+    int index = (count % 6) - 1;
+    if (index < 0) {
+        index = 5;
+    }
+    return flames[index];
+}
