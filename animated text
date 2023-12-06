@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+int main() {
+    char text[100];
+
+    printf("Enter the text\n");
+    scanf("%[^\n]s", text);
+
+    int index = 0;
+    int n = strlen(text);
+
+    while (index < n) {
+        int found = 0;
+
+        if (text[index] < 'a' || text[index] > 'z') {
+            printf("%.*s%c\n", index, text, text[index]);
+            index++;
+            continue;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            if (found)
+                break;
+
+            char c = 'a' + i;
+
+            printf("%.*s%c\n", index, text, c);
+            usleep(100000);
+
+            if (c == text[index]) {
+                found = 1;
+                index++;
+            }
+        }
+    }
+
+    return 0;
+}
