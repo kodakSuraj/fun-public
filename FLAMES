@@ -30,7 +30,7 @@ int main() {
     if (strlen(name1) == 0 || strlen(name2) == 0 || strspn(name1, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name1) || strspn(name2, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name2)) {
         printf("Invalid names. Exiting...\n");
         return 1;
-    }*/
+    }
 
     name1[strcspn(name1, "\n")] = '\0';
     name2[strcspn(name2, "\n")] = '\0';
