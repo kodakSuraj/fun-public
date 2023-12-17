@@ -25,12 +25,7 @@ int main() {
 
     getchar();
 
-    /*// Check if names match specific conditions
-    if ((strcmp(name1, "suraj") == 0 || strcmp(name1, "madhumita") == 0 || strcmp(name1, "madhumitha") == 0 ||  strcmp(name1, "madumita") ) &&
-        (strcmp(name2, "madhumita") == 0 || strcmp(name2, "suraj") == 0 || strcmp(name2, "madhumitha") == 0)||  strcmp(name1, "madumita")) {
-        printf("\nWHAT WILL U GET BY DOING THESE THINGS,\nfuck u bitch,\n u are a bloody ass fucking bitch,\nu son of a bitch,\nnever in your life show me your face\n");
-        return 0;
-    }
+
 
     if (strlen(name1) == 0 || strlen(name2) == 0 || strspn(name1, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name1) || strspn(name2, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ") != strlen(name2)) {
         printf("Invalid names. Exiting...\n");
