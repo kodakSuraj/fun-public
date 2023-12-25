@@ -4,7 +4,8 @@
 
 char getFLAMESResult(int count);
 
-int main() {
+int main() 
+{
     char name1[100], name2[100];
 
     printf(" Welcome to the FLAMES Game!\n");
